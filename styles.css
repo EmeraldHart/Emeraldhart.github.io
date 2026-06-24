@@ -1,0 +1,601 @@
+/* ==========================
+   EMERALD HART
+   Broadway Luxury Theme
+========================== */
+
+:root{
+    --black:#050505;
+    --black-soft:#0e0e0e;
+    --gold:#d4af37;
+    --gold-light:#f0d27b;
+    --cream:#f7f2e8;
+    --gray:#9f9f9f;
+    --border:rgba(255,255,255,.08);
+
+    --shadow:
+    0 20px 60px rgba(0,0,0,.4);
+
+    --transition:.4s ease;
+}
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--black);
+    color:var(--cream);
+    font-family:"Inter",sans-serif;
+    overflow-x:hidden;
+    line-height:1.8;
+}
+
+/* ==========================
+   SPOTLIGHTS
+========================== */
+
+.spotlight{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(180px);
+    pointer-events:none;
+    z-index:-1;
+}
+
+.spotlight-1{
+    width:500px;
+    height:500px;
+    background:rgba(212,175,55,.08);
+    top:-150px;
+    left:-150px;
+}
+
+.spotlight-2{
+    width:700px;
+    height:700px;
+    background:rgba(212,175,55,.05);
+    bottom:-250px;
+    right:-250px;
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container{
+    width:min(1200px,90%);
+    margin:auto;
+}
+
+/* ==========================
+   NAVIGATION
+========================== */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
+}
+
+.navbar{
+    width:min(1300px,95%);
+    margin:20px auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px 30px;
+
+    backdrop-filter:blur(20px);
+
+    background:
+    rgba(15,15,15,.55);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:999px;
+}
+
+.logo{
+    font-family:
+    "Cormorant Garamond",
+    serif;
+
+    font-size:1.4rem;
+    letter-spacing:3px;
+    color:var(--gold);
+}
+
+.nav-links{
+    display:flex;
+    gap:32px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:var(--cream);
+    transition:var(--transition);
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:2rem;
+    cursor:pointer;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+    height:100vh;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.8)
+    ),
+    url("hero.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(212,175,55,.08),
+        transparent 60%
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    width:min(1200px,90%);
+    margin:auto;
+}
+
+.hero-tag{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:5px;
+    font-size:.9rem;
+}
+
+.hero h1{
+    font-family:
+    "Cormorant Garamond",
+    serif;
+
+    font-size:
+    clamp(5rem,14vw,12rem);
+
+    line-height:.9;
+    font-weight:600;
+
+    margin-top:20px;
+}
+
+.hero h1 span{
+    display:block;
+    color:var(--gold);
+}
+
+.hero p{
+    margin-top:25px;
+
+    max-width:650px;
+
+    color:#dddddd;
+
+    font-size:1.2rem;
+}
+
+.hero-buttons{
+    margin-top:40px;
+
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.btn{
+    text-decoration:none;
+
+    padding:16px 28px;
+
+    border-radius:999px;
+
+    transition:var(--transition);
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+}
+
+.gold{
+    background:var(--gold);
+    color:black;
+    font-weight:600;
+}
+
+.gold:hover{
+    background:var(--gold-light);
+    transform:translateY(-3px);
+}
+
+.outline{
+    border:1px solid var(--gold);
+    color:var(--gold);
+}
+
+.outline:hover{
+    background:rgba(212,175,55,.1);
+}
+
+/* ==========================
+   SECTIONS
+========================== */
+
+.section{
+    padding:140px 0;
+}
+
+.dark{
+    background:
+    linear-gradient(
+        rgba(255,255,255,.015),
+        rgba(255,255,255,.01)
+    );
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-heading span{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:.85rem;
+}
+
+.section-heading h2{
+    font-family:
+    "Cormorant Garamond",
+    serif;
+
+    font-size:
+    clamp(3rem,6vw,5rem);
+
+    margin-top:10px;
+}
+
+/* ==========================
+   ABOUT
+========================== */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:70px;
+    align-items:center;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:30px;
+    box-shadow:var(--shadow);
+}
+
+.about-text p{
+    margin-bottom:25px;
+    color:#d6d6d6;
+    font-size:1.1rem;
+}
+
+/* ==========================
+   VIDEO
+========================== */
+
+.video-container{
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.video-container iframe{
+    width:100%;
+    aspect-ratio:16/9;
+    border:none;
+}
+
+/* ==========================
+   CREDITS
+========================== */
+
+.credits-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+}
+
+.credit-card{
+    padding:40px;
+
+    border-radius:24px;
+
+    background:
+    rgba(255,255,255,.03);
+
+    border:1px solid var(--border);
+
+    transition:var(--transition);
+}
+
+.credit-card:hover{
+    transform:translateY(-8px);
+
+    border-color:
+    rgba(212,175,55,.5);
+}
+
+.credit-card h3{
+    color:var(--gold);
+
+    margin-bottom:10px;
+
+    font-family:
+    "Cormorant Garamond",
+    serif;
+
+    font-size:2rem;
+}
+
+.credit-card p{
+    margin-bottom:10px;
+}
+
+.credit-card span{
+    color:var(--gray);
+}
+
+/* ==========================
+   GALLERY
+========================== */
+
+.gallery{
+    columns:3;
+    column-gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    display:block;
+
+    margin-bottom:20px;
+
+    border-radius:20px;
+
+    transition:.5s ease;
+
+    cursor:pointer;
+}
+
+.gallery img:hover{
+    transform:scale(1.02);
+}
+
+/* ==========================
+   CONTACT
+========================== */
+
+.contact-form{
+    max-width:700px;
+    margin:auto;
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    background:
+    rgba(255,255,255,.03);
+
+    border:1px solid var(--border);
+
+    padding:18px;
+
+    border-radius:16px;
+
+    color:white;
+
+    font-size:1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    outline:none;
+
+    border-color:
+    rgba(212,175,55,.6);
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+    text-align:center;
+
+    padding:80px 20px;
+
+    border-top:
+    1px solid rgba(255,255,255,.05);
+}
+
+footer h3{
+    font-family:
+    "Cormorant Garamond",
+    serif;
+
+    font-size:2.5rem;
+
+    color:var(--gold);
+}
+
+footer p{
+    color:var(--gray);
+    margin:10px 0 30px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.footer-links a{
+    color:var(--cream);
+    text-decoration:none;
+    transition:var(--transition);
+}
+
+.footer-links a:hover{
+    color:var(--gold);
+}
+
+/* ==========================
+   REVEAL ANIMATIONS
+========================== */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:none;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:900px){
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        columns:2;
+    }
+
+    .hero h1{
+        font-size:5rem;
+    }
+}
+
+@media (max-width:768px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:90px;
+        left:20px;
+        right:20px;
+
+        flex-direction:column;
+
+        background:#0f0f0f;
+
+        border-radius:25px;
+
+        padding:25px;
+
+        display:none;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .hero{
+        text-align:center;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+}
+
+@media (max-width:600px){
+
+    .gallery{
+        columns:1;
+    }
+
+    .section{
+        padding:100px 0;
+    }
+
+    .hero h1{
+        font-size:4rem;
+    }
+
+    .section-heading h2{
+        font-size:3rem;
+    }
+}
