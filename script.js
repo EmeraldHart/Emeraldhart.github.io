@@ -128,3 +128,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+/*-------------------------
+    AUTO GALLERY
+--------------------------*/
+
+const galleryImages = [
+    "DSC06827.jpg",
+    "IMG_6516.JPG",
+    "IMG_6521.JPG",
+    "IMG_6523.JPG",
+    "May 5 -_-42 small.jpg"
+];
+
+const gallery = document.getElementById("gallery-container");
+
+if (gallery) {
+    galleryImages.forEach(image => {
+        const img = document.createElement("img");
+
+        img.src = `./images/${image}`;
+        img.alt = "";
+
+        gallery.appendChild(img);
+    });
+}
