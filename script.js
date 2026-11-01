@@ -134,12 +134,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 --------------------------*/
 
 const galleryImages = [
-    "DSC06827.jpg",
-    "IMG_6516.JPG",
-    "IMG_6521.JPG",
-    "IMG_6523.JPG",
-    "May 5 -_-42 small.jpg"
-];
+  "Boheme2.jpg",
+  "Bohemetrio.jpg",
+  "Carosel.jpg",
+  "Emerald Hart Smile.JPG",
+  "H&g Lanterns Sleep.jpg",
+  "H&G Lanterns2.jpg",
+  "H&G Sleep.jpg",
+  "H7g Lanterns Magic.jpg",
+  "Hansel&Gretel Sing.jpg",
+  "Hansel&Gretel.jpg",
+  "HJE Book.jpg",
+  "HJE Convo.jpg",
+  "HJE Sheet.jpg",
+  "HJE Stool.jpg",
+  "HJE Veil Off.jpg",
+  "HJE Veil.jpg",
+  "HJE Wedding CLose.jpg",
+  "HJE Wedding Far.jpg",
+  "RagtimeDance.jpg",
+  "RagtimeFactory.jpg",
+  "RagtimeHC.jpg",
+  "RagtimePiano.jpg",
+  "RagtimeTrioSing.jpg",
+  "RagtimeVigil.jpg",
+  "RentPhone.JPG",
+  "RentSeasonsofLove.JPG",
+  "Takemeorleaveme.JPG"
+]
 
 const gallery = document.getElementById("gallery-container");
 
@@ -147,9 +169,50 @@ if (gallery) {
     galleryImages.forEach(image => {
         const img = document.createElement("img");
 
-        img.src = `./images/${image}`;
-        img.alt = "";
+        img.src = `./images/Gallery/${image}`;
+        img.alt = image;
+        img.classList.add("gallery-image");
+
+        img.addEventListener("click", () => {
+            const overlay = document.getElementById("image-lightbox");
+            const enlargedImage = document.getElementById("lightbox-image");
+
+            enlargedImage.src = img.src;
+            enlargedImage.alt = img.alt;
+
+            overlay.classList.add("active");
+        });
 
         gallery.appendChild(img);
     });
 }
+
+// Close lightbox when clicking the background
+const lightbox = document.getElementById("image-lightbox");
+const enlargedImage = document.getElementById("lightbox-image");
+const closeButton = document.getElementById("lightbox-close");
+
+// Close lightbox
+function closeLightbox() {
+    lightbox.classList.remove("active");
+}
+
+// Close button
+closeButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    closeLightbox();
+});
+
+// Click background to close
+lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+// Escape key to close
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+});
